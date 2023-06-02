@@ -1,6 +1,6 @@
 # CS_Project_2023
 This project was made as part of the java OOP exam at UNIMORE university, MODENA, IT.
-Thus the purpose of this repository is educational only.
+Thus the purpose of this repository is educational only./n
 It is also required of me to state that I don't own any rights regarding the actual game "PACMAN"
 nor the images used in this code, all the rights reagarding the branding of the game and the images
 are to be appointed to the respectful owners.
