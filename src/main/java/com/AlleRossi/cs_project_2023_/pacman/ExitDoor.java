@@ -7,17 +7,20 @@ import java.io.File;
 import java.io.IOException;
 
 public class ExitDoor {
+    //doors X and Y positions in the maze
     int xpos;
     int ypos;
-
+    //the textures of the open and closed doors
     BufferedImage textureClosed;
     BufferedImage textureOpen;
-
+    //Doors dimensions and body
     int Dwidth = 60;
     int Dheight = 55;
 
     Rectangle body;
-
+    //constructor
+    //@x is the position on the X axis
+    //@y is the position on the Y axis
     public ExitDoor(int x, int y) {
         this.xpos = x;
         this.ypos = y;
@@ -30,7 +33,7 @@ public class ExitDoor {
         return body;
     }
 
-    //load image for flag obj
+    //load image for door obj might throw IOExceptions
     {
         try {
             textureOpen = ImageIO.read(new File("src/images/open_door.png"));

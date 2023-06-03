@@ -61,6 +61,8 @@ public class Player {
     Rectangle solid;
 
     //constructor for the PLayer obj
+    //@x is the starting X position
+    //@y is the starting Y position
     public Player(int x, int y, GamePanel panel) {
         this.panel = panel;
         this.x = x;
@@ -150,7 +152,7 @@ public class Player {
         }
     }
 
-    //set method that allows us to move around the panel/maze
+    //set method that allows user to move around the panel/maze
     public void set() {
         //controls on the x-axis
         if (left && right || !left && !right) xspeed *= 0.8;
@@ -165,7 +167,7 @@ public class Player {
         if (xspeed < 0 && xspeed > -0.75) xspeed = 0;
         if (xspeed > 4) xspeed = 4;
         if (xspeed < -4) xspeed = -4;
-        //controls on teh y-axis
+        //controls on the y-axis
         if (up && down || !up && !down) yspeed *= 0.8;
         else if (up) {
             yspeed--;
@@ -206,6 +208,7 @@ public class Player {
         for (int i = 0; i < panel.coins.size(); i++) {
             if (solid.intersects(panel.coins.get(i).getCoinsBody())) {
                 Ccollected++;
+                //removing the coins that the player has collected from the maze
                 //noinspection SuspiciousListRemoveInLoop
                 panel.coins.remove(i);
             }
@@ -215,15 +218,15 @@ public class Player {
             FlagCollected = true;
         }
 
-
+        //increases position on X and Y axis by *speed amount
         x += xspeed;
         y += yspeed;
-
+        //assigns the new position to the sprite texture
         solid.x = x;
         solid.y = y;
-
+        //if the player is just respawned we skip this code for few seconds
         if (!justResp && lives != 0) {
-            //code for death
+            //checks interactions between the ghosts and the player, if so it counts as a death
             for (Ghost ghost : panel.ghosts) {
                 if (this.getBodyP().intersects(ghost.getBody())) {
                     lives--;
@@ -242,7 +245,7 @@ public class Player {
             panel.gameOver();
         }
     }
-
+    //takes care or the respawn process, it changes the site and makes the player immortal for 2 seconds after the respawn
     public void respawn() {
         xspeed = 0;
         yspeed = 0;
@@ -270,7 +273,8 @@ public class Player {
         }
     }
 
-    //code for drawing our objects
+    //code for drawing our player
+    //@mask is the icon that currently corresponds with the direction that the player is facing
     public void draw(Graphics2D gr) {
 
         gr.drawImage(mask, x, y, null);

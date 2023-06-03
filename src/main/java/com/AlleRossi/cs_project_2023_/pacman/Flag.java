@@ -7,16 +7,19 @@ import java.io.File;
 import java.io.IOException;
 
 public class Flag {
+    //flags coordinates
     int xpos;
     int ypos;
-
+    //flags texture
     BufferedImage texture;
-
+    //flags dimensions and body
     int Fwidth = 50;
     int Fheight = 50;
 
     Rectangle body;
-
+    //constructor
+    //@x is the X position of the flag
+    //@y is the Y position of the flag
     public Flag(int x, int y) {
         this.xpos = x;
         this.ypos = y;
