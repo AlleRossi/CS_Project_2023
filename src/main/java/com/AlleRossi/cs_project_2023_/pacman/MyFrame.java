@@ -31,7 +31,8 @@ public class MyFrame extends JFrame implements ActionListener {
             throw new RuntimeException(e.getCause());
         }
     }
-
+    //constructor
+    //creates the first frame and sets the position and title of the window
     public MyFrame() {
 
         this.setSize(800, 600);
@@ -43,8 +44,9 @@ public class MyFrame extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
-
+    //sets the current frame to the beginning screen and waits for actions to start the actual game
     public void BeginningScreen() {
+        //button creation and placement in the panel
         btn = new JButton("Start the game");
         Bpan = new JPanel();
         Font f = new Font("Mv Boli", Font.BOLD, 20);
@@ -64,6 +66,7 @@ public class MyFrame extends JFrame implements ActionListener {
         btn.setLocation(300, 450);
         Bpan.add(btn);
         Bpan.setLayout(null);
+        //creation of labels to be displayed on the panel with relative positions
         JLabel info = new JLabel("CS Project 2023");
         JLabel dis = new JLabel("Disclaimer:");
         JLabel dis1 = new JLabel("I don't own any rights regarding the game");
@@ -94,6 +97,7 @@ public class MyFrame extends JFrame implements ActionListener {
         info.setHorizontalTextPosition(JLabel.CENTER);
         info.setFont(f);
         info.setForeground(Color.GREEN);
+        //adds all the labels to the panel ready to be displayed
         Bpan.add(dis);
         Bpan.add(dis1);
         Bpan.add(dis2);
@@ -102,7 +106,7 @@ public class MyFrame extends JFrame implements ActionListener {
         Bpan.add(info);
         this.add(Bpan);
     }
-
+    //starts the actual game when called by the action listener function
     public void StartGame() {
         this.setSize(1000, 800);
         this.setLocation((int) (screenSize.getWidth() / 2 - this.getSize().getWidth() / 2), (int) (screenSize.getHeight() / 2 - this.getSize().getHeight() / 2));
@@ -115,14 +119,17 @@ public class MyFrame extends JFrame implements ActionListener {
         addKeyListener(new KeyChecker(pan));
     }
 
-    //code for GAMEOVER
+    //code for GAME-OVER
+    //it discards the game panel and creates a new one to display the game stats that have been retrieved
     public void gameOver() {
         int[] arr = pan.getInfo();
         this.setVisible(false);
         this.remove(pan);
         this.setSize(800, 600);
+        //resets the frame to the center of the screen
         this.setLocation((int) (screenSize.getWidth() / 2 - this.getSize().getWidth() / 2), (int) (screenSize.getHeight() / 2 - this.getSize().getHeight() / 2));
         btn = new JButton("Quit");
+        //adds a quit button to end the game and uses the @Bpan that was the beginning panel to display the ending stats as well
         Bpan = new JPanel();
         Font f = new Font("Mv Boli", Font.BOLD, 20);
         Bpan.setSize(this.getSize());
@@ -140,6 +147,7 @@ public class MyFrame extends JFrame implements ActionListener {
         btn.setHorizontalAlignment(SwingConstants.CENTER);
         Bpan.add(btn);
         Bpan.setLayout(null);
+        //creating new labels to display the game stats, thus the names @dis @dis2 and so on
         JLabel info = new JLabel();
         JLabel dis = new JLabel("Coins Collected: " + arr[1]);
         JLabel dis2 = new JLabel("Lives left: " + (arr[2]));
@@ -177,7 +185,7 @@ public class MyFrame extends JFrame implements ActionListener {
         this.setVisible(true);
 
     }
-
+    //overrides the super class function to listen for mouse click on the button
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btn && isStart) {
