@@ -24,7 +24,8 @@ public class GamePanel extends JPanel {
     Timer gameTimer;
     //Frame to witch the panel belongs
     MyFrame Frame;
-
+    //constructor
+    //@frame where our panel is displayed
     public GamePanel(MyFrame frame) {
         this.Frame = frame;
         Pac = new Player(50, 650, this);
@@ -35,7 +36,7 @@ public class GamePanel extends JPanel {
         addDoors();
         deployGhosts();
         gameTimer = new Timer();
-        //code to make our game timer--> aka our game loop
+        //code to start the game timer--> aka our game loop
         gameTimer.schedule(new TimerTask() {
             @Override
             public void run() {
@@ -49,6 +50,7 @@ public class GamePanel extends JPanel {
     }
 
     //code for drawing on the panel
+    //@g stands for graphics and gets cast to graphiscs2D to improve textures and possible delays
     public void paint(Graphics g) {
         super.paint(g);
 
@@ -103,7 +105,7 @@ public class GamePanel extends JPanel {
         ghosts.add(new Ghost(850, 660, 3, 3, this));
     }
 
-    //code for making the walls
+    //code for making the walls of the maze
     public void makeWalls() {
         //creating outer walls
         for (int i = 0; i < 1000; i += 50) {
@@ -171,7 +173,7 @@ public class GamePanel extends JPanel {
         makeWalls();
     }
 
-    //key listeners
+    //key listeners for user input
     void keyPressed(KeyEvent e) {
         if (e.getKeyChar() == 'a') Pac.setLeftP(true);
         if (e.getKeyChar() == 'w') Pac.setUpP(true);
@@ -187,7 +189,7 @@ public class GamePanel extends JPanel {
         if (e.getKeyChar() == 's') Pac.setDownP(false);
     }
 
-    //code to return stats
+    //code to return game stats
     public int[] getInfo() {
         int[] arr = new int[4];
         arr[0] = Pac.getVictory();

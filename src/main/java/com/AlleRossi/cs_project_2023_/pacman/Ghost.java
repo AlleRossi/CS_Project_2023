@@ -154,18 +154,20 @@ public class Ghost {
                 changeDirection();
             }
         }
+        //this next few lines add the possibility for ghosts to change direction  without any collisions happening
         counter++;
         if (counter % 300 == 0) {
             counter = 0;
             changeDirection();
         }
+        //keeping the speed between the boundaries (maxspeed; -maxspeed)
         if (getXspeedG() > maxSpeed) setXspeesG(maxSpeed);
         if (getXspeedG() < -maxSpeed) setXspeesG(-maxSpeed);
         setXposG(getXposG() + (int) getXspeedG());
         setYposG(getYposG() + (int) getYspeedG());
         updateBodyPosG();
     }
-
+    //makes sure that the random direction chosen isn't obstructed by a wall
     public boolean checkIfOpen(int way) {
         switch (way) {
             case UP -> {
@@ -208,7 +210,7 @@ public class Ghost {
         return true;
     }
 
-    //change direction after collision
+    //changes direction after collision at random making sure it isn't the same way it was going
     public void changeDirection() {
         int tmp;
         if (isDown || isUp) {
@@ -299,7 +301,7 @@ public class Ghost {
         }
     };
 
-    //draw the ghost
+    //draw the ghost at current position @xpos and @ypos
     public void drawGhost(Graphics2D gr) {
         gr.drawImage(GhostIcon, xpos, ypos, null);
     }
