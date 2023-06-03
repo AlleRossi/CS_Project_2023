@@ -1,4 +1,4 @@
-package com.AlleRossi.CS_Project_2023.PacMan;
+package com.AlleRossi.cs_project_2023_.pacman;
 
 import java.awt.*;
 

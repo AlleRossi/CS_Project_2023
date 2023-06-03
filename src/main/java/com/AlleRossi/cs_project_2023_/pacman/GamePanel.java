@@ -1,4 +1,4 @@
-package com.AlleRossi.CS_Project_2023.PacMan;
+package com.AlleRossi.cs_project_2023_.pacman;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,13 +11,13 @@ public class GamePanel extends JPanel {
     //create a player instance
     Player Pac;
     //creates the door instance
-    exitDoor doors;
+    ExitDoor doors;
     //creates the flag
-    flag Fl;
+    Flag Fl;
     //stores all our walls in here
     ArrayList<Walls> walls = new ArrayList<>();
     //store the ghosts in here
-    ArrayList<ghost> ghosts = new ArrayList<>();
+    ArrayList<Ghost> ghosts = new ArrayList<>();
     //stores our coins in here
     ArrayList<Coins> coins = new ArrayList<>();
     //generates a game timer
@@ -40,7 +40,7 @@ public class GamePanel extends JPanel {
             @Override
             public void run() {
                 Pac.set();
-                for (ghost ghost : ghosts) {
+                for (Ghost ghost : ghosts) {
                     ghost.set();
                 }
                 repaint();
@@ -59,18 +59,18 @@ public class GamePanel extends JPanel {
         if (!Pac.FlagCollected) Fl.drawFlag(gr);
         for (Coins cn : coins) cn.drawCoin(gr);
         for (Walls walls : walls) walls.draw(gr);
-        for (ghost ghost : ghosts) ghost.drawGhost(gr);
+        for (Ghost ghost : ghosts) ghost.drawGhost(gr);
     }
 
 
     //code for adding the flag
     public void addFlag() {
-        Fl = new flag(800, 165);
+        Fl = new Flag(800, 165);
     }
 
     //code for creating the doors
     public void addDoors() {
-        doors = new exitDoor(60, 655);
+        doors = new ExitDoor(60, 655);
     }
 
     //code for deploying the coins
@@ -98,9 +98,9 @@ public class GamePanel extends JPanel {
 
     //code to deploy ghosts
     public void deployGhosts() {
-        ghosts.add(new ghost(750, 660, 0, 1, this));
-        ghosts.add(new ghost(800, 660, 2, 2, this));
-        ghosts.add(new ghost(850, 660, 3, 3, this));
+        ghosts.add(new Ghost(750, 660, 0, 1, this));
+        ghosts.add(new Ghost(800, 660, 2, 2, this));
+        ghosts.add(new Ghost(850, 660, 3, 3, this));
     }
 
     //code for making the walls

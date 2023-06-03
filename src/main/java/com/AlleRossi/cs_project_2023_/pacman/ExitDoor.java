@@ -1,4 +1,4 @@
-package com.AlleRossi.CS_Project_2023.PacMan;
+package com.AlleRossi.cs_project_2023_.pacman;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -6,7 +6,7 @@ import java.awt.image.*;
 import java.io.File;
 import java.io.IOException;
 
-public class exitDoor {
+public class ExitDoor {
     int xpos;
     int ypos;
 
@@ -18,7 +18,7 @@ public class exitDoor {
 
     Rectangle body;
 
-    public exitDoor(int x, int y) {
+    public ExitDoor(int x, int y) {
         this.xpos = x;
         this.ypos = y;
 

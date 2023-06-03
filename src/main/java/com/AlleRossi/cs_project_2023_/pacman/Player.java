@@ -1,4 +1,4 @@
-package com.AlleRossi.CS_Project_2023.PacMan;
+package com.AlleRossi.cs_project_2023_.pacman;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -224,7 +224,7 @@ public class Player {
 
         if (!justResp && lives != 0) {
             //code for death
-            for (ghost ghost : panel.ghosts) {
+            for (Ghost ghost : panel.ghosts) {
                 if (this.getBodyP().intersects(ghost.getBody())) {
                     lives--;
                     respawn();

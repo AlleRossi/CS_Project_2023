@@ -1,4 +1,4 @@
-package com.AlleRossi.CS_Project_2023.PacMan;
+package com.AlleRossi.cs_project_2023_.pacman;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class ghost {
+public class Ghost {
     //variables for random directions
     int newDir;
     Random rand = new Random();
@@ -46,7 +46,7 @@ public class ghost {
 
     Rectangle body;
 
-    public ghost(int x, int y, int dir, int type, GamePanel panel) {
+    public Ghost(int x, int y, int dir, int type, GamePanel panel) {
         this.xpos = x;
         this.ypos = y;
         switch (dir) {

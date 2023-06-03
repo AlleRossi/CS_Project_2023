@@ -1,4 +1,4 @@
-package com.AlleRossi.CS_Project_2023.PacMan;
+package com.AlleRossi.cs_project_2023_.pacman;
 
 // run the code here to enjoy new PacMan
 // disclaimer: this project is for educational purposes only all rights reserved to the respectful owners of both game and images used in this code

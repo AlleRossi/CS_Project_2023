@@ -1,4 +1,4 @@
-package com.AlleRossi.CS_Project_2023.PacMan;
+package com.AlleRossi.cs_project_2023_.pacman;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -6,7 +6,7 @@ import java.awt.image.*;
 import java.io.File;
 import java.io.IOException;
 
-public class flag {
+public class Flag {
     int xpos;
     int ypos;
 
@@ -17,7 +17,7 @@ public class flag {
 
     Rectangle body;
 
-    public flag(int x, int y) {
+    public Flag(int x, int y) {
         this.xpos = x;
         this.ypos = y;
 
