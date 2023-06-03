@@ -35,17 +35,21 @@ public class Ghost {
     Image GhostIcon;
     int Gwidth = 50;
     int Gheight = 50;
-    //variable to make unstuck the ghosts every once in a while
+    //variable to have the ghosts make random direction changes every minute or so
     int counter = 0;
-
+    //key variables for movement and a body to check collisions
     static final int maxSpeed = 4;
     double xspeed;
     double yspeed;
-    //key variables for movement and a body to check collisions
 
 
     Rectangle body;
-
+    //constructor
+    //@x is the current X position
+    //@y is the current Y position
+    //@dir is the current heading
+    //@type is the kid of ghost(blue, red, green)
+    //@panel is the panel where the ghosts will be displayed
     public Ghost(int x, int y, int dir, int type, GamePanel panel) {
         this.xpos = x;
         this.ypos = y;
@@ -110,7 +114,7 @@ public class Ghost {
     public void setYposG(int y) {
         this.ypos = y;
     }
-
+    //updated the position of the sprite to the next coordinates where the ghost is going to be
     public void updateBodyPosG() {
         this.body.x = xpos;
         this.body.y = ypos;
