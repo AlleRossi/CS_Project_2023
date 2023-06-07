@@ -106,6 +106,7 @@ public class MyFrame extends JFrame implements ActionListener {
         Bpan.add(info);
         Bpan.setVisible(true);
         this.add(Bpan);
+        this.setVisible(true);
     }
     //starts the actual game when called by the action listener function
     public void StartGame() {
